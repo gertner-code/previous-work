@@ -1,0 +1,35 @@
+Home page
+	links to rentals page
+	link to employee side with password
+Rental page
+	asks for vehicle type and rental start and end date  (form entry: startdate, enddate, vehicle type) (checks to make sure dates are correct. (not before current date and start is before end))
+	checks if there is a vehicle available and if not returns a message saying that vehicle type is not available for that time frame (query for available vehicle)
+	if available brings to customer info page (saves start, end, and vehicleid in session; vehicle id is randomly picked from returned query)
+Customer info page
+	lists vehicle chosen from previous page at top with vehicle number (outputs variables saved in session from previous page)
+	asks for all customer information in schema (form entry: customer table)
+	checks to make sure all required forms are filled out, if filled links to conformation page (save all in session again and calculate price)
+Conformation 
+	lists out vehicle info again as well as all entered customer info (echo all information)
+	on confirm first enters customer info, then finds customerid and enters rental info(). 
+	(check to see if customer info matches an already listed customer to stop duplicates)
+	outputs rental number and closes db connection
+	
+Employee site
+	links for :
+		change end date (if rental is returned late or just extended) (query by name update date and cost accordingly) 
+		
+		add fee/discount to a rental (percent or flat) (query based on name then update with options for flat and percent using a select option form)
+		
+		
+		view all rentals in chosen week/month (query of +7 days from current date/+30days for month)
+		
+		view all rental by a customer and total amount spent by customer (query by name then select links to query based on customerId)
+		
+		delete a rental(so rentals can be cancelled) (query based on name links to query based on customerId confirm and delete)
+		
+		
+		add rental (for in person rentals) (display all input forms and input; all in one page)
+		change price for a vehicle (query brings up all vehicle sizes link to update price)
+		discount or increse on all vehicles (same as above but applyes to all vehicles)
+		

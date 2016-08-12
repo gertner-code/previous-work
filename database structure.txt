@@ -1,0 +1,21 @@
+Vehicles(vehicleId, size)
+Price(size, price)
+Customer(customerId, firstname, lastname, birthdate, streetaddress, city, state, zipcode, email, company(can be null))
+rental(rentId, customerId, vehicleId, startdate, enddate, cost(calculated in php for each rental))
+
+CREATE VIEW Cost AS
+SELECT
+  rentalId,
+  customerId,
+  (
+    price *(
+      DATEDIFF(startdate,
+      enddate) +1
+    ) +(tank * 5) + damage
+  ) AS totalCost
+FROM
+  rental r
+JOIN
+  vehicles v ON v.vehicleId = r.vehicleId
+JOIN
+  price p ON p.size = v.size;
