@@ -1,8 +1,9 @@
-Vehicles(vehicleId, size)
-Price(size, price)
+Vehicles(vehicleId, size) prepulated 
+Price(size, price) prepopulated
 Customer(customerId, firstname, lastname, birthdate, streetaddress, city, state, zipcode, email, company(can be null))
 rental(rentId, customerId, vehicleId, startdate, enddate, cost(calculated in php for each rental))
 
+"was a bad idea but kept on hand due to it being a decent example for writing a VIEW."
 CREATE VIEW Cost AS
 SELECT
   rentalId,
@@ -19,3 +20,5 @@ JOIN
   vehicles v ON v.vehicleId = r.vehicleId
 JOIN
   price p ON p.size = v.size;
+  
+  
